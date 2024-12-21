@@ -199,3 +199,12 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 #TW_CUSTOM_BATTERY_POS := 1040
 #TW_STATUS_ICONS_ALIGN := center
 
+# Add firmware file paths
+TOUCH_FW_DIR := $(DEVICE_PATH)/recovery/root/vendor/firmware
+TOUCH_FW_FILE_1 := $(TOUCH_FW_DIR)/novatek_ts_fw.bin
+TOUCH_FW_FILE_2 := $(TOUCH_FW_DIR)/novatek_ts_mp.bin
+
+# Ensure firmware files are included in the build
+PRODUCT_COPY_FILES += \
+    $(TOUCH_FW_FILE_1):$(TARGET_COPY_OUT_VENDOR)/firmware/novatek_ts_fw.bin \
+    $(TOUCH_FW_FILE_2):$(TARGET_COPY_OUT_VENDOR)/firmware/novatek_ts_mp.bin
